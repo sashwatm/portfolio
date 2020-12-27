@@ -4,4 +4,10 @@ import * as cdk from '@aws-cdk/core';
 import { PortfolioInfrastructureStack } from '../lib/portfolio_infrastructure-stack';
 
 const app = new cdk.App();
-new PortfolioInfrastructureStack(app, 'PortfolioInfrastructureStack');
+const props = {
+  env: {
+    account: '108035832044',
+    region: 'us-west-2'
+  }
+}
+new PortfolioInfrastructureStack(app, 'PortfolioInfrastructureStack', props);
