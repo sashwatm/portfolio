@@ -1,18 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RouteSwitch from './components/RouteSwitch';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core';
+
+import theme from './styles/theme'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>
-          Sashwat Mishra
-        </h2>
-        <p>Something exciting coming soon!</p>
-      </header>
-    </div>
+    <React.Fragment>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <RouteSwitch />
+      </ThemeProvider>
+    </React.Fragment>
   );
 }
 
