@@ -10,20 +10,17 @@ const styles = (theme: any) => ({
   }
 });
 
-function Headline(props: any) {
+function Text(props: any) {
   const { classes } = props;
   return (
     <React.Fragment>
       <Grid item className={classes.item} xs={12}>
         <Paper>
           <Typography variant="h2">
-            Hi!
-          </Typography>
-          <Typography variant="h2">
-            I'm Sashwat.
+            Projects
           </Typography>
           <Typography variant="subtitle1">
-            Software Engineer
+            These are my projects!
           </Typography>
         </Paper>
       </Grid>
@@ -31,8 +28,8 @@ function Headline(props: any) {
   );
 }
 
-Headline.propTypes = {
+Text.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Headline);
+export default withStyles(styles)(Text);

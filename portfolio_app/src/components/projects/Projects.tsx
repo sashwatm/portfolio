@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, GridSpacing } from '@material-ui/core';
 
-import Logo from './Logo';
-import Headline from './Headline';
+import Text from './Text'
 
 const styles = (theme: any) => ({
   root: {
@@ -17,24 +16,24 @@ const styles = (theme: any) => ({
   }
 });
 
-function Home(props: any) {
+function Projects(props: any) {
   const { classes } = props;
   return (
     <div className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
         <Grid container item xs={12} md={6}>
-          <Logo />
+          <Text />
         </Grid>
         <Grid container item xs={12} md={6}>
-          <Headline />
+          <p>Cards go here!</p>
         </Grid>
       </Grid>
     </div>
   );
 }
 
-Home.propTypes = {
+Projects.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Projects);

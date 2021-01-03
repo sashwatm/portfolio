@@ -1,6 +1,5 @@
 import React from 'react';
-import RouteSwitch from './components/RouteSwitch';
-
+import ResponsiveDrawer from './components/headers/ResponsiveDrawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 
@@ -11,7 +10,7 @@ function App() {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <RouteSwitch />
+        <ResponsiveDrawer />
       </ThemeProvider>
     </React.Fragment>
   );

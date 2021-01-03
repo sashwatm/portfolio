@@ -15,6 +15,18 @@ const theme = createMuiTheme({
       paper: colors['dark-charcoal']
     }
   },
+  overrides: {
+    MuiPaper: {
+      root: {
+        padding: '8px',
+      },
+    }
+  },
+  props: {
+    MuiPaper: {
+      elevation: 0
+    }
+  }
 });
 
 export default theme;

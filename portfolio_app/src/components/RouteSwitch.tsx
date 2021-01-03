@@ -1,26 +1,33 @@
-import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React from 'react'
+import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom'
+import { withStyles } from '@material-ui/core/styles';
 
 import Home from './home/Home'
+import About from './about/About'
+import Projects from './projects/Projects'
 import NotFound from './notFound/NotFound'
 
+const styles = (theme: any) => ({
 
-class RouteSwitch extends Component {
-  constructor(props: any) {
-    super(props);
-    this.state = { user: null }
-  }
+});
 
-  render() {
-    return (
-      <main>
-        <Switch>
-          <Route exact path='/' render={(props) => <Home />} />
-          <Route component={NotFound} />
-        </Switch>
-      </main>
-    )
-  }
+function RouteSwitch(props: any) {
+  const { classes } = props;
+  return (
+    <main>
+      <Switch>
+        <Route exact path='/' render={(props) => <Home />} />
+        <Route exact path='/about' render={(props) => <About />} />
+        <Route exact path='/projects' render={(props) => <Projects />} />
+        <Route component={NotFound} />
+      </Switch>
+    </main>
+  )
 }
 
-export default RouteSwitch
+RouteSwitch.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(RouteSwitch);

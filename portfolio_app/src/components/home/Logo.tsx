@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Grid, Paper } from '@material-ui/core';
 
 import logo from '../../images/logo.svg';
 
 const styles = (theme: any) => ({
   img: {
-    width: 300,
-    height: 300,
-  },
+    maxHeight:'60vh',
+    maxWidth:'100%'
+  }
 });
 
 function Logo(props: any) {
   const { classes } = props;
   return (
     <React.Fragment>
-      <Grid item>
-        <img className={classes.img} src={logo} alt="sashwatm_logo" />
+      <Grid item xs={12}>
+        <Paper>
+          <img className={classes.img} src={logo} alt="sashwatm_logo"/>
+        </Paper>
       </Grid>
     </React.Fragment>
   );
