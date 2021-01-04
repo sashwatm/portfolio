@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, GridSpacing } from '@material-ui/core';
 
+import Photo from './Photo'
 import Text from './Text'
 
 const styles = (theme: any) => ({
@@ -25,7 +26,7 @@ function About(props: any) {
           <Text />
         </Grid>
         <Grid container item xs={12} md={6}>
-          <p>Photo goes here!</p>
+          <Photo />
         </Grid>
       </Grid>
     </div>

@@ -18,7 +18,12 @@ const theme = createMuiTheme({
   overrides: {
     MuiPaper: {
       root: {
-        padding: '8px',
+        padding: '20px',
+      },
+    },
+    MuiTypography: {
+      root: {
+        padding: '1%',
       },
     }
   },

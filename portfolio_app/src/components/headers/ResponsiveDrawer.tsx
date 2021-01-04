@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     borderRight: 'none',
     width: drawerWidth,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: theme.spacing(1)
   },
   content: {
     flexGrow: 1,

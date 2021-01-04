@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, List, ListItem, ListItemIcon, ListItemText, Paper } from '@material-ui/core';
+
 import DencryptTypography from '../helpers/DencryptTypography'
 
 const styles = (theme: any) => ({
@@ -20,8 +21,20 @@ function Text(props: any) {
           <DencryptTypography variant="h2">
             whoami
           </DencryptTypography>
-          <Typography variant="subtitle1">
-            I am who!
+          <Typography variant="h5">
+            I am a software engineer with experience in the tech and automotive industry.
+          </Typography>
+          <Typography variant="h5">
+            On the backend, I have worked on computationally intensive software like
+            numerical solvers, data analyzers, and optimizers. I have also built scalable
+            distributed systems for cloud services.
+          </Typography>
+          <Typography variant="h5">
+            On the frontend, I have built web and desktop clients for some of the
+            backend systems I have developed.
+          </Typography>
+          <Typography variant="h5">
+            I love cars, coding, and cooking.
           </Typography>
         </Paper>
       </Grid>
