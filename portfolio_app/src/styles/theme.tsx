@@ -26,6 +26,12 @@ const theme = createMuiTheme({
     MuiPaper: {
       elevation: 0
     }
+  },
+  typography: {
+    fontFamily: [
+      'Heebo',
+      'Arial'
+    ].join(',')
   }
 });
 
