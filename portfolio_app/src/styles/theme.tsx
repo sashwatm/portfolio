@@ -5,7 +5,7 @@ const theme = createMuiTheme({
   palette: {
     type: "dark",
     primary: {
-      main: colors['vibrant-yellow']
+      main: colors['living-coral']
     },
     secondary: {
       main: colors['blue-depths']
