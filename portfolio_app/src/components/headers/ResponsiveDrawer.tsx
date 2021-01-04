@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
+    borderRight: 'none',
     width: drawerWidth,
     justifyContent: 'center'
   },
@@ -70,7 +71,7 @@ function ResponsiveDrawer(props: any) {
   const drawer = (
     <React.Fragment>
       <Navigation />
-      <Divider />
+      <Divider variant='middle' />
       <SocialMedia />
     </React.Fragment>
   );
