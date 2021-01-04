@@ -21,7 +21,7 @@ function Photo(props: any) {
     <React.Fragment>
       <Grid item className={classes.item} xs={12}>
         <Paper>
-          <Avatar className={classes.avatar} variant="circle" alt="Sashwat Mishra" src={headshot} />
+          <Avatar className={classes.avatar} variant="circular" alt="Sashwat Mishra" src={headshot} />
         </Paper>
       </Grid>
     </React.Fragment>

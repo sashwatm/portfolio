@@ -4,8 +4,6 @@ import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, List, ListItem, ListItemIcon, ListItemText, Paper } from '@material-ui/core';
 
-import DencryptTypography from '../helpers/DencryptTypography'
-
 const styles = (theme: any) => ({
   item: {
     textAlign: 'left' as const
@@ -18,9 +16,6 @@ function Text(props: any) {
     <React.Fragment>
       <Grid item className={classes.item} xs={12}>
         <Paper>
-          <DencryptTypography variant="h2">
-            whoami
-          </DencryptTypography>
           <Typography variant="h5">
             I am a software engineer with experience in the tech and automotive industry.
           </Typography>

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, GridSpacing } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-import Text from './Text'
+import DencryptTypography from '../helpers/DencryptTypography'
+import RenenetCard from './cards/RenenetCard'
 
 const styles = (theme: any) => ({
   root: {
@@ -21,11 +22,13 @@ function Projects(props: any) {
   return (
     <div className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
-        <Grid container item xs={12} md={6}>
-          <Text />
+        <Grid container item xs={12}>
+          <DencryptTypography variant="h2">
+            Projects
+          </DencryptTypography>
         </Grid>
-        <Grid container item xs={12} md={6}>
-          <p>Cards go here!</p>
+        <Grid container item xs={12} sm={6} md={4}>
+          <RenenetCard />
         </Grid>
       </Grid>
     </div>
