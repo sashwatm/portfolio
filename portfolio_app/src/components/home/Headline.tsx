@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
+import DencryptTypography from '../helpers/DencryptTypography'
 
 const styles = (theme: any) => ({
   item: {
@@ -19,11 +20,11 @@ function Headline(props: any) {
           <Typography variant="h2">
             Hi!
           </Typography>
-          <Typography variant="h2">
+          <DencryptTypography variant="h2">
             I'm Sashwat.
-          </Typography>
-          <Typography variant="subtitle1">
-            Software Engineer
+          </DencryptTypography>
+          <Typography variant="h6">
+            Full Stack Software Engineer
           </Typography>
         </Paper>
       </Grid>

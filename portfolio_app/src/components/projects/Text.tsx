@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, Paper } from '@material-ui/core';
+import DencryptTypography from '../helpers/DencryptTypography'
 
 const styles = (theme: any) => ({
   item: {
@@ -16,9 +17,9 @@ function Text(props: any) {
     <React.Fragment>
       <Grid item className={classes.item} xs={12}>
         <Paper>
-          <Typography variant="h2">
+          <DencryptTypography variant="h2">
             Projects
-          </Typography>
+          </DencryptTypography>
           <Typography variant="subtitle1">
             These are my projects!
           </Typography>

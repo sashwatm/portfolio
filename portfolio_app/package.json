@@ -19,6 +19,7 @@
     "react-scripts": "4.0.1",
     "react-typist": "^2.0.5",
     "typescript": "^4.0.3",
+    "use-dencrypt-effect": "^1.0.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
