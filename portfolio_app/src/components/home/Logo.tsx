@@ -9,6 +9,12 @@ const styles = (theme: any) => ({
   img: {
     maxHeight:'60vh',
     maxWidth:'100%'
+  },
+  paper: {
+    height:'100%',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'center'
   }
 });
 
@@ -16,11 +22,9 @@ function Logo(props: any) {
   const { classes } = props;
   return (
     <React.Fragment>
-      <Grid item xs={12}>
-        <Paper>
-          <img className={classes.img} src={logo} alt="sashwatm_logo"/>
-        </Paper>
-      </Grid>
+      <Paper className={classes.paper}>
+        <img className={classes.img} src={logo} alt="sashwatm_logo"/>
+      </Paper>
     </React.Fragment>
   );
 }

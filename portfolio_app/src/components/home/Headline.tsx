@@ -8,6 +8,12 @@ import DencryptTypography from '../helpers/DencryptTypography'
 const styles = (theme: any) => ({
   item: {
     textAlign: 'left' as const
+  },
+  paper: {
+    height:'100%',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'center'
   }
 });
 
@@ -15,19 +21,17 @@ function Headline(props: any) {
   const { classes } = props;
   return (
     <React.Fragment>
-      <Grid item className={classes.item} xs={12}>
-        <Paper>
-          <Typography variant="h2">
-            Hi!
-          </Typography>
-          <DencryptTypography variant="h2">
-            I'm Sashwat.
-          </DencryptTypography>
-          <Typography variant="h6">
-            Full Stack Software Engineer
-          </Typography>
-        </Paper>
-      </Grid>
+      <Paper className={classes.paper}>
+        <Typography variant="h2">
+          Hi!
+        </Typography>
+        <DencryptTypography variant="h2">
+         I'm Sashwat.
+        </DencryptTypography>
+        <Typography variant="h6">
+          Full Stack Software Engineer
+        </Typography>
+      </Paper>
     </React.Fragment>
   );
 }

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, GridSpacing } from '@material-ui/core';
 
-import DencryptTypography from '../helpers/DencryptTypography'
 import Photo from './Photo'
 import Text from './Text'
+import Title from './Title'
 
 const styles = (theme: any) => ({
   root: {
@@ -23,15 +23,13 @@ function About(props: any) {
   return (
     <div className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
-        <Grid container item xs={12}>
-          <DencryptTypography variant="h2">
-            whoami
-          </DencryptTypography>
+        <Grid item xs={12}>
+          <Title />
         </Grid>
-        <Grid container item xs={12} md={6}>
+        <Grid item xs={12} md={6}>
           <Text />
         </Grid>
-        <Grid container item xs={12} md={6}>
+        <Grid item xs={12} md={6}>
           <Photo />
         </Grid>
       </Grid>

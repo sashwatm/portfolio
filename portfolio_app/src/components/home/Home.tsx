@@ -22,10 +22,10 @@ function Home(props: any) {
   return (
     <div className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
-        <Grid container item xs={12} md={6}>
+        <Grid item xs={12} md={6}>
           <Logo />
         </Grid>
-        <Grid container item xs={12} md={6}>
+        <Grid item xs={12} md={6}>
           <Headline />
         </Grid>
       </Grid>
