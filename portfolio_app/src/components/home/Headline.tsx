@@ -22,14 +22,14 @@ function Headline(props: any) {
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
-        <Typography variant="h2">
+        <Typography variant="h5">
           Hi!
         </Typography>
         <DencryptTypography variant="h2">
-         I'm Sashwat.
+         I'm Sashwat,
         </DencryptTypography>
-        <Typography variant="h6">
-          Full Stack Software Engineer
+        <Typography variant="h5">
+           a Full Stack Software Engineer
         </Typography>
       </Paper>
     </React.Fragment>
