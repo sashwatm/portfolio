@@ -1,12 +1,21 @@
-import * as cdk from '@aws-cdk/core';
-import * as s3 from '@aws-cdk/aws-s3';
+import * as acm from '@aws-cdk/aws-certificatemanager';
 import * as cloudfront from '@aws-cdk/aws-cloudfront';
+import * as iam from '@aws-cdk/aws-iam';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as route53Targets from '@aws-cdk/aws-route53-targets';
-import * as acm from '@aws-cdk/aws-certificatemanager';
+import * as s3 from '@aws-cdk/aws-s3';
+import * as ses from '@aws-cdk/aws-ses';
+import * as sesActions from '@aws-cdk/aws-ses-actions';
+import * as sns from '@aws-cdk/aws-sns';
+import * as snsSubscriptions from '@aws-cdk/aws-sns-subscriptions';
+import * as cdk from '@aws-cdk/core';
+import * as customResources from '@aws-cdk/custom-resources';
+
 
 export class PortfolioInfrastructureStack extends cdk.Stack {
-  readonly PORTFOLIO_DOMAIN: string = "sashwatmishra.com";
+  readonly PORTFOLIO_SLD: string = "sashwatmishra";
+  readonly PORTFOLIO_FORWARDING_EMAIL: string = `${this.PORTFOLIO_SLD}@gmail.com`;
+  readonly PORTFOLIO_DOMAIN: string = `${this.PORTFOLIO_SLD}.com`;
   readonly PORTFOLIO_DOMAIN_ALIASES: string[] = [this.PORTFOLIO_DOMAIN, `www.${this.PORTFOLIO_DOMAIN}`];
 
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -57,5 +66,66 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
     });
 
     bucket.grantRead(cloudFrontOAI.grantPrincipal);
+
+    const verifyDomainIdentity = new customResources.AwsCustomResource(this, 'VerifyDomainIdentity', {
+      onCreate: {
+        service: 'SES',
+        action: 'verifyDomainIdentity',
+        parameters: {
+          Domain: this.PORTFOLIO_DOMAIN
+        },
+        physicalResourceId: customResources.PhysicalResourceId.fromResponse('VerificationToken') // Use the token returned by the call as physical id
+      },
+      policy: customResources.AwsCustomResourcePolicy.fromStatements([
+        new iam.PolicyStatement({
+          actions: ["ses:VerifyDomainIdentity"],
+          effect: iam.Effect.ALLOW,
+          resources: ['*']
+        })
+      ]),
+    });
+
+    new route53.TxtRecord(this, 'SESVerificationRecord', {
+      recordName: `_amazonses.${this.PORTFOLIO_DOMAIN}`,
+      zone: hostedZone,
+      values: [ verifyDomainIdentity.getResponseField('VerificationToken').toString() ]
+    });
+
+    // Add SES rule set to forward message to SNS topic that our personal email id subscribes to
+    const mailReceiverTopic = new sns.Topic(this, 'MailReceiverTopic', {
+      topicName: 'HeyPortfolioMailReceiver'
+    });
+
+    mailReceiverTopic.addSubscription(new snsSubscriptions.EmailSubscription(this.PORTFOLIO_FORWARDING_EMAIL));
+
+    new ses.ReceiptRuleSet(this, 'MailForwardingRuleSet', {
+      dropSpam: true,
+      rules: [
+        {
+          enabled: true,
+          receiptRuleName: 'HeyPortfolioMailForwardingRuleSet',
+          recipients: [`hey@${this.PORTFOLIO_DOMAIN}`],
+          actions: [ new sesActions.Sns({ encoding: sesActions.EmailEncoding.UTF8, topic: mailReceiverTopic }) ]
+        }
+      ]
+    });
+
+    const verifyEmailIdentity = new customResources.AwsCustomResource(this, 'VerifyEmailIdentity', {
+      onCreate: {
+        service: 'SES',
+        action: 'verifyEmailIdentity',
+        parameters: {
+          EmailAddress: `hey@${this.PORTFOLIO_DOMAIN}`
+        },
+        physicalResourceId: customResources.PhysicalResourceId.of('VerifyEmailIdentity')
+      },
+      policy: customResources.AwsCustomResourcePolicy.fromStatements([
+        new iam.PolicyStatement({
+          actions: ["ses:VerifyEmailIdentity"],
+          effect: iam.Effect.ALLOW,
+          resources: ['*']
+        })
+      ]),
+    });
   }
 }
