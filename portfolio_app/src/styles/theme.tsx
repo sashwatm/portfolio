@@ -16,6 +16,11 @@ const theme = createMuiTheme({
     }
   },
   overrides: {
+    MuiButton: {
+      root: {
+        margin: "2%"
+      }
+    },
     MuiPaper: {
       root: {
         padding: '20px',

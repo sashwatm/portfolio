@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
 import { List, ListItem, ListItemIcon }  from '@material-ui/core';
-import { Home, EmojiPeople, Work } from '@material-ui/icons';
+import { Contacts, Home, EmojiPeople, Work } from '@material-ui/icons';
 
 const styles = (theme: any) => ({
 
@@ -22,6 +22,9 @@ function Navigation(props: any) {
         </ListItem>
         <ListItem button component={Link} to="/projects">
           <ListItemIcon><Work /></ListItemIcon>
+        </ListItem>
+        <ListItem button component={Link} to="/contact">
+          <ListItemIcon><Contacts /></ListItemIcon>
         </ListItem>
     </List>
     </React.Fragment>
