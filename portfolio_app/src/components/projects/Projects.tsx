@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
-import RenenetCard from './cards/RenenetCard'
+import ProjectCard from '../helpers/ProjectCard'
 import Title from './Title'
+
+import moneyplant from '../../images/projects/moneyplant.png'
+import thesis from '../../images/projects/thesis.png'
 
 const styles = (theme: any) => ({
   root: {
@@ -17,17 +20,34 @@ const styles = (theme: any) => ({
   }
 });
 
+const projectDefs = [
+  {
+    thumbnail: moneyplant,
+    title: 'MoneyPlant' ,
+    description: 'A personal wealth management app',
+    link: 'https://www.moneyplant.world'
+  },
+  {
+    thumbnail: thesis,
+    title: 'High-Speed Turbulent Flow' ,
+    description: 'Hybridization of compact and WENO schemes for simulation of turbulent flows with shocks',
+    link: 'https://www.proquest.com/docview/1734881663'
+  }
+]
+
 function Projects(props: any) {
   const { classes } = props;
   return (
     <div className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
-        <Grid container item xs={12}>
+        <Grid item xs={12}>
           <Title />
         </Grid>
-        <Grid container item xs={12} sm={6} md={4}>
-          <RenenetCard />
-        </Grid>
+        {projectDefs.map((definition, idx) => (
+          <Grid item key={idx} xs={12} sm={6}>
+            <ProjectCard {...definition} />
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
