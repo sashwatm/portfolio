@@ -91,6 +91,17 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
       values: [ verifyDomainIdentity.getResponseField('VerificationToken').toString() ]
     });
 
+    new route53.MxRecord(this, 'SESMailReceivingRecord', {
+      recordName: this.PORTFOLIO_DOMAIN,
+      zone: hostedZone,
+      values: [
+        {
+          hostName:'inbound-smtp.us-west-2.amazonaws.com.',
+          priority: 0
+        }
+      ]
+    });
+
     // Add SES rule set to forward message to SNS topic that our personal email id subscribes to
     const mailReceiverTopic = new sns.Topic(this, 'MailReceiverTopic', {
       topicName: 'HeyPortfolioMailReceiver'
@@ -98,7 +109,7 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
 
     mailReceiverTopic.addSubscription(new snsSubscriptions.EmailSubscription(this.PORTFOLIO_FORWARDING_EMAIL));
 
-    new ses.ReceiptRuleSet(this, 'MailForwardingRuleSet', {
+    const mailForwardingRuleSet = new ses.ReceiptRuleSet(this, 'MailForwardingRuleSet', {
       dropSpam: true,
       rules: [
         {
@@ -108,6 +119,24 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
           actions: [ new sesActions.Sns({ encoding: sesActions.EmailEncoding.UTF8, topic: mailReceiverTopic }) ]
         }
       ]
+    });
+
+    const activateRuleSet = new customResources.AwsCustomResource(this, 'ActivateMailForwardingRuleSet', {
+      onCreate: {
+        service: 'SES',
+        action: 'setActiveReceiptRuleSet',
+        parameters: {
+          RuleSetName: mailForwardingRuleSet.receiptRuleSetName
+        },
+        physicalResourceId: customResources.PhysicalResourceId.of('ActivateMailForwardingRuleSet')
+      },
+      policy: customResources.AwsCustomResourcePolicy.fromStatements([
+        new iam.PolicyStatement({
+          actions: ["ses:SetActiveReceiptRuleSet"],
+          effect: iam.Effect.ALLOW,
+          resources: ['*']
+        })
+      ]),
     });
 
     const verifyEmailIdentity = new customResources.AwsCustomResource(this, 'VerifyEmailIdentity', {
