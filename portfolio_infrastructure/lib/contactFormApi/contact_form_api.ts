@@ -26,6 +26,11 @@ export class ContactFormApi extends cdk.Construct {
       restApiName: `${id}MailerGateway`,
       proxy: false,
       handler: contactFormMailer,
+      defaultCorsPreflightOptions: {
+        allowOrigins: [props.portfolioDomain],
+        allowMethods: ['OPTIONS', 'POST'],
+        allowHeaders: ['*']
+      },
       endpointExportName: `${id}MailerGatewayEndpoint`
     });
 

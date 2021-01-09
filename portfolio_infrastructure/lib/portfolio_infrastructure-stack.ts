@@ -71,6 +71,8 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
     });
 
     // Create a contact form send handler
-    new contactFormApi.ContactFormApi(this, 'ContactForm', {});
+    new contactFormApi.ContactFormApi(this, 'ContactForm', {
+      portfolioDomain: this.PORTFOLIO_DOMAIN
+    });
   }
 }
