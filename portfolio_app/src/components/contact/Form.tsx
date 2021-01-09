@@ -84,7 +84,7 @@ function Form(props: any) {
           rowsMax={5}
           {...bindMessage}
         />
-        <Button variant="contained" color="primary" startIcon={<Send />} onClick={handleSubmit}>
+        <Button variant="contained" color="secondary" startIcon={<Send />} onClick={handleSubmit}>
           Send
         </Button>
       </Paper>

@@ -2,6 +2,7 @@
 const colors = {
   'blueberry': '#3a414a',
   'blue-depths': '#263056',
+  'brilliant-blue': '#0075b3',
   'dark-charcoal': '#282c34',
   'limpet-shell': '#98DDDE',
   'living-coral': '#FA7268',

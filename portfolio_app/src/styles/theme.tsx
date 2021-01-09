@@ -8,7 +8,7 @@ const theme = createMuiTheme({
       main: colors['living-coral']
     },
     secondary: {
-      main: colors['blue-depths']
+      main: colors['brilliant-blue']
     },
     background: {
       default: colors['dark-charcoal'],

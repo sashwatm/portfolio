@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
+import Email from './Email'
 import Form from './Form'
 import Title from './Title'
 
@@ -25,8 +26,11 @@ function Contact(props: any) {
         <Grid item xs={12}>
           <Title />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Form />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Email />
         </Grid>
       </Grid>
     </div>
