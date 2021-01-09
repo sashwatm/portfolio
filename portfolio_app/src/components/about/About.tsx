@@ -27,10 +27,10 @@ function About(props: any) {
           <Title />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Text />
+          <Photo />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Photo />
+          <Text />
         </Grid>
       </Grid>
     </div>

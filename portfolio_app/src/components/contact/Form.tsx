@@ -64,7 +64,6 @@ function Form(props: any) {
           {...bindName}
         />
         <TextField
-          id="input-with-icon-textfield"
           label="Email"
           InputProps={{
             startAdornment: (
@@ -76,12 +75,10 @@ function Form(props: any) {
           {...bindEmail}
         />
         <TextField
-          id="input-with-icon-textfield"
           label="Subject"
           {...bindSubject}
         />
         <TextField
-          id="input-with-icon-textfield"
           label="Message"
           multiline
           rowsMax={5}

@@ -44,7 +44,7 @@ function Projects(props: any) {
           <Title />
         </Grid>
         {projectDefs.map((definition, idx) => (
-          <Grid item key={idx} xs={12} sm={6}>
+          <Grid item key={idx} xs={12} md={6}>
             <ProjectCard {...definition} />
           </Grid>
         ))}
