@@ -12,34 +12,32 @@ import RouteSwitch from '../RouteSwitch';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: 'flex',
     [theme.breakpoints.up('sm')]: {
-      display: 'flex',
       flexDirection: 'row' as const
     },
     [theme.breakpoints.down('xs')]: {
-      display: 'flex',
       flexDirection: 'column' as const
     },
   },
   drawer: {
+    flexShrink: 0,
     [theme.breakpoints.up('sm')]: {
       height: '100vh',
-      width: '10vh',
-      flexShrink: 0,
+      width: '10vh'
     },
     [theme.breakpoints.down('xs')]: {
       height: '10vw',
-      width: '100vw',
-      flexShrink: 0,
-    },
+      width: '100vw'
+    }
   },
   drawerPaper: {
+    padding: theme.spacing(1),
     [theme.breakpoints.up('sm')]: {
       borderRight: 'none',
       height: '100vh',
       width: '10vh',
       justifyContent: 'center',
-      padding: theme.spacing(1),
       flexDirection: 'column' as const
     },
     [theme.breakpoints.down('xs')]: {
@@ -47,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
       height: '10vw',
       width: '100vw',
       justifyContent: 'left',
-      padding: theme.spacing(1),
       flexDirection: 'row' as const
     },
   },

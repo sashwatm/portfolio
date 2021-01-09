@@ -12,7 +12,9 @@ import thesis from '../../images/projects/thesis.png'
 const styles = (theme: any) => ({
   root: {
     width: '100%',
-    height: '100vh'
+    [theme.breakpoints.up('md')]: {
+      height: '100vh'
+    }
   },
   grid: {
     width: '100%',
