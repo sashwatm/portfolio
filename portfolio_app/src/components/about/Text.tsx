@@ -25,9 +25,9 @@ function Text(props: any) {
           I am a software engineer with 6.5 years of experience in the tech and automotive industry.
         </Typography>
         <Typography variant="h5">
-          On the backend, I have worked on computationally intensive software like
-          numerical solvers, data analyzers, and optimizers. I have also built scalable
-          distributed systems for cloud services.
+          On the backend, I work on large-scale distributed systems for cloud services,
+          specifically Amazon Web Services (AWS). I have also worked on data intensive software
+          like numerical solvers, data analyzers, and optimizers.
         </Typography>
         <Typography variant="h5">
           On the frontend, I have built web and desktop clients for some of the
