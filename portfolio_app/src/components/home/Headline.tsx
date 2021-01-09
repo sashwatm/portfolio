@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { Grid, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 import DencryptTypography from '../helpers/DencryptTypography'
 
 const styles = (theme: any) => ({
