@@ -5,6 +5,8 @@ import { AccountCircle, AlternateEmail, Send } from '@material-ui/icons';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 
+const axios = require('axios');
+
 const styles = (theme: any) => ({
   paper: {
     padding: theme.spacing(1, 1),
@@ -36,15 +38,19 @@ function Form(props: any) {
 
   const { value:name, bind:bindName, reset:resetName } = useInput('');
   const { value:email, bind:bindEmail, reset:resetEmail } = useInput('');
-  const { value:subject, bind:bindSubject, reset:resetSubject } = useInput('');
   const { value:message, bind:bindMessage, reset:resetMessage } = useInput('');
 
   const handleSubmit = (event: any) => {
       event.preventDefault();
-      alert(`Submitting Name ${name} ${email} ${subject} ${message}`);
+      axios.post('https://tpx9nfe2ai.execute-api.us-west-2.amazonaws.com/prod/emails', {
+        name: name,
+        email: email,
+        content: message
+      })
+      .then(function (response: any) { console.log('Success sending message'); })
+      .catch(function (error: any) { console.log('Failed sending message'); console.log(error); console.log(error.message); });
       resetName();
       resetEmail();
-      resetSubject();
       resetMessage();
   }
 
@@ -73,10 +79,6 @@ function Form(props: any) {
             ),
           }}
           {...bindEmail}
-        />
-        <TextField
-          label="Subject"
-          {...bindSubject}
         />
         <TextField
           label="Message"
