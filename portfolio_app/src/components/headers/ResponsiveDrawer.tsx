@@ -1,36 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Navigation from './Navigation';
 import SocialMedia from './SocialMedia';
 import RouteSwitch from '../RouteSwitch';
 
-const drawerWidth = '10vh';
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+      flexDirection: 'row' as const
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      flexDirection: 'column' as const
+    },
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
+      width: '10vh',
+      flexShrink: 0,
+    },
+    [theme.breakpoints.down('xs')]: {
+      width: '50vh',
       flexShrink: 0,
     },
   },
   drawerPaper: {
-    borderRight: 'none',
-    width: drawerWidth,
-    justifyContent: 'center',
-    padding: theme.spacing(1)
+    [theme.breakpoints.up('sm')]: {
+      borderRight: 'none',
+      width: '10vh',
+      justifyContent: 'center',
+      padding: theme.spacing(1),
+      flexDirection: 'column' as const
+    },
+    [theme.breakpoints.down('xs')]: {
+      borderBottom: 'none',
+      width: '50vh',
+      justifyContent: 'left',
+      padding: theme.spacing(1),
+      flexDirection: 'row' as const
+    },
   },
   content: {
     flexGrow: 1,
@@ -41,17 +56,20 @@ function ResponsiveDrawer(props: any) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
+  const drawerWideScreens = (
     <React.Fragment>
-      <Navigation />
-      <Divider variant='middle' />
-      <SocialMedia />
+      <Navigation orientation='vertical'/>
+      <Divider orientation='horizontal' variant='middle' />
+      <SocialMedia orientation='vertical' />
+    </React.Fragment>
+  );
+
+  const drawerNarrowScreens = (
+    <React.Fragment>
+      <Navigation orientation='horizontal'/>
+      <Divider orientation='vertical' variant='middle' flexItem />
+      <SocialMedia orientation='horizontal' />
     </React.Fragment>
   );
 
@@ -60,23 +78,19 @@ function ResponsiveDrawer(props: any) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="navigation social">
         <Hidden smUp implementation="css">
           <Drawer
             elevation={0}
             container={container}
             variant="permanent"
             anchor='top'
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
+            open={true}
             classes={{
               paper: classes.drawerPaper,
             }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
           >
-            {drawer}
+            {drawerNarrowScreens}
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">
@@ -85,16 +99,12 @@ function ResponsiveDrawer(props: any) {
             container={container}
             variant="permanent"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
+            open={true}
             classes={{
               paper: classes.drawerPaper,
             }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
           >
-            {drawer}
+            {drawerWideScreens}
           </Drawer>
         </Hidden>
       </nav>
