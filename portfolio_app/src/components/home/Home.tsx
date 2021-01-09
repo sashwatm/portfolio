@@ -9,9 +9,7 @@ import Headline from './Headline';
 const styles = (theme: any) => ({
   root: {
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      height: '100vh'
-    }
+    height: '100vh'
   },
   grid: {
     width: '100%',
