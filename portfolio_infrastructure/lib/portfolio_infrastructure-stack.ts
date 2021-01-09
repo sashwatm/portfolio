@@ -6,6 +6,7 @@ import * as route53Targets from '@aws-cdk/aws-route53-targets';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as cdk from '@aws-cdk/core';
 
+import * as contactFormApi from './contactFormApi/contact_form_api';
 import * as emailSetup from './emailSetup/email_setup';
 
 export class PortfolioInfrastructureStack extends cdk.Stack {
@@ -68,5 +69,8 @@ export class PortfolioInfrastructureStack extends cdk.Stack {
       portfolioFwdEmail: this.PORTFOLIO_FORWARDING_EMAIL,
       users: ['admin', 'hey']
     });
+
+    // Create a contact form send handler
+    new contactFormApi.ContactFormApi(this, 'ContactForm', {});
   }
 }
