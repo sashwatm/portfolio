@@ -23,17 +23,20 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
+      height: '100vh',
       width: '10vh',
       flexShrink: 0,
     },
     [theme.breakpoints.down('xs')]: {
-      width: '50vh',
+      height: '10vw',
+      width: '100vw',
       flexShrink: 0,
     },
   },
   drawerPaper: {
     [theme.breakpoints.up('sm')]: {
       borderRight: 'none',
+      height: '100vh',
       width: '10vh',
       justifyContent: 'center',
       padding: theme.spacing(1),
@@ -41,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('xs')]: {
       borderBottom: 'none',
-      width: '50vh',
+      height: '10vw',
+      width: '100vw',
       justifyContent: 'left',
       padding: theme.spacing(1),
       flexDirection: 'row' as const
