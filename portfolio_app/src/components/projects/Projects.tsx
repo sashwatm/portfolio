@@ -38,7 +38,7 @@ const projectDefs = [
 function Projects(props: any) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
+    <div id="projects" className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
         <Grid item xs={12}>
           <Title />

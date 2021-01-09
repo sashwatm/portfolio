@@ -1,29 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link';
 import { List, ListItem, ListItemIcon }  from '@material-ui/core';
 import { Contacts, Home, EmojiPeople, Work } from '@material-ui/icons';
 
-const styles = (theme: any) => ({
-
-});
-
 function Navigation(props: any) {
-  const { classes } = props;
   return (
     <React.Fragment>
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItem button component={HashLink} smooth to="/#home">
           <ListItemIcon><Home /></ListItemIcon>
         </ListItem>
-        <ListItem button component={Link} to="/about">
+        <ListItem button component={HashLink} smooth to="/#about">
           <ListItemIcon><EmojiPeople /></ListItemIcon>
         </ListItem>
-        <ListItem button component={Link} to="/projects">
+        <ListItem button component={HashLink} smooth to="/#projects">
           <ListItemIcon><Work /></ListItemIcon>
         </ListItem>
-        <ListItem button component={Link} to="/contact">
+        <ListItem button component={HashLink} smooth to="/#contact">
           <ListItemIcon><Contacts /></ListItemIcon>
         </ListItem>
     </List>
@@ -31,8 +24,4 @@ function Navigation(props: any) {
   );
 }
 
-Navigation.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Navigation);
+export default Navigation;

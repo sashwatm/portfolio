@@ -20,7 +20,7 @@ const styles = (theme: any) => ({
 function Contact(props: any) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
+    <div id="contact" className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
         <Grid item xs={12}>
           <Title />

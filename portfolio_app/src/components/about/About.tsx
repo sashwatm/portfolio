@@ -21,7 +21,7 @@ const styles = (theme: any) => ({
 function About(props: any) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
+    <div id="about" className={classes.root}>
       <Grid container className={classes.grid} justify="space-between" alignItems="stretch">
         <Grid item xs={12}>
           <Title />
