@@ -22,19 +22,18 @@ function Text(props: any) {
     <React.Fragment>
       <Paper className={classes.paper}>
         <Typography variant="h5">
-          I am a software engineer with 6.5 years of experience in the tech and automotive industry.
+          I am a software engineer with 7 years of experience in the tech and automotive industry.
         </Typography>
         <Typography variant="h5">
-          On the backend, I work on large-scale distributed systems for cloud services,
-          specifically Amazon Web Services (AWS). I have also worked on data intensive software
+          On the backend, I work on large-scale, data-intensive distributed systems for cloud services,
+          specifically Amazon Web Services (AWS). I have also worked on compute-intensive software
           like numerical solvers, data analyzers, and optimizers.
         </Typography>
         <Typography variant="h5">
-          On the frontend, I have built web and desktop clients for some of the
-          backend systems I have developed.
+          On the frontend, I have built web and desktop clients in React and MATLAB.
         </Typography>
         <Typography variant="h5">
-          I love cars, coding, and cooking.
+          I love coding, cars, and cooking.
         </Typography>
       </Paper>
     </React.Fragment>
