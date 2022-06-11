@@ -29,7 +29,7 @@ function Headline(props: any) {
          I'm Sashwat,
         </DencryptTypography>
         <Typography variant="h5">
-           a Full Stack Software Engineer
+           a Software Engineer
         </Typography>
       </Paper>
     </React.Fragment>
