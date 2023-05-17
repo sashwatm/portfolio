@@ -29,7 +29,7 @@ function SocialMedia(props: any) {
         <ListItem button component="a" href="https://github.com/sashwatm" target="_blank">
           <ListItemIcon><GitHub /></ListItemIcon>
         </ListItem>
-        <ListItem button component="a" href="https://www.instagram.com/kuku.sash" target="_blank">
+        <ListItem button component="a" href="https://www.instagram.com/kukusash" target="_blank">
           <ListItemIcon><Instagram /></ListItemIcon>
         </ListItem>
     </List>
