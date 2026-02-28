@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import DencryptTypography from '../helpers/DencryptTypography'
+import Divider from '@material-ui/core/Divider';
 
 const styles = (theme: any) => ({
   item: {
@@ -26,7 +27,11 @@ function Headline(props: any) {
          I am Sashwat,
         </DencryptTypography>
         <Typography variant="h5">
-           Tech Lead · Distributed Systems &amp; Platform Engineering
+           Software Engineer and Tech Lead
+        </Typography>
+        <Divider orientation='horizontal' variant='middle' />
+        <Typography variant="h5">
+           Distributed Systems &amp; Platform Engineering
         </Typography>
       </Paper>
     </React.Fragment>
