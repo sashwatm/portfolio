@@ -7,24 +7,28 @@ import { Visibility } from '@material-ui/icons';
 const styles = (theme: any) => ({
   root: {
     display: 'flex',
-    maxHeight: '30vh'
+    flexDirection: 'column' as const,
+    height: '100%',
   },
   actions: {
     display: 'flex',
-    flexDirection: 'column' as const,
-    alignItems: 'flex-end',
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
+    justifyContent: 'flex-end',
+    padding: theme.spacing(1),
   },
   details: {
     display: 'flex',
     flexDirection: 'column' as const,
+    flexGrow: 1,
   },
   content: {
     flex: '1 0 auto',
   },
   thumbnail: {
-    width: '30%'
+    height: 220,
+    backgroundSize: 'contain',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: '#f5f5f5',
   }
 });
 
@@ -43,7 +47,7 @@ function ProjectCard(props: any) {
           <Typography component="h5" variant="h5">
             {props.title}
           </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant="body2" color="textSecondary">
             {props.description}
           </Typography>
         </CardContent>

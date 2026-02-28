@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { HashLink } from 'react-router-hash-link';
 import { List, ListItem, ListItemIcon }  from '@material-ui/core';
-import { Contacts, Home, EmojiPeople, Work } from '@material-ui/icons';
+import { Contacts, Home, EmojiPeople, Work, Timeline } from '@material-ui/icons';
 
 const styles = (theme: any) => ({
    horizontalList: {
@@ -29,6 +29,9 @@ function Navigation(props: any) {
         </ListItem>
         <ListItem button component={HashLink} smooth to="/#about">
           <ListItemIcon><EmojiPeople /></ListItemIcon>
+        </ListItem>
+        <ListItem button component={HashLink} smooth to="/#experience">
+          <ListItemIcon><Timeline /></ListItemIcon>
         </ListItem>
         <ListItem button component={HashLink} smooth to="/#projects">
           <ListItemIcon><Work /></ListItemIcon>

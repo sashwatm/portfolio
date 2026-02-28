@@ -9,7 +9,6 @@ import ExperienceTimeline from './ExperienceTimeline';
 const styles = (theme: any) => ({
   root: {
     width: '100%',
-    minHeight: '100vh',
   },
   grid: {
     width: '100%',
