@@ -22,11 +22,8 @@ function Headline(props: any) {
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
-        <Typography variant="h5">
-          Hi!
-        </Typography>
         <DencryptTypography variant="h2">
-         I'm Sashwat,
+         I am Sashwat,
         </DencryptTypography>
         <Typography variant="h5">
            Tech Lead · Distributed Systems &amp; Platform Engineering

@@ -3,23 +3,27 @@ import colors from './colors';
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: 'dark',
     primary: {
-      main: colors['living-coral']
+      main: colors['terracotta'],
     },
     secondary: {
-      main: colors['brilliant-blue']
+      main: colors['steel-blue'],
     },
     background: {
-      default: colors['dark-charcoal'],
-      paper: colors['dark-charcoal']
-    }
+      default: colors['background'],
+      paper:   colors['surface'],
+    },
+    text: {
+      primary:   colors['off-white'],
+      secondary: colors['slate'],
+    },
   },
   overrides: {
     MuiButton: {
       root: {
-        margin: "2%"
-      }
+        margin: '2%',
+      },
     },
     MuiPaper: {
       root: {
@@ -30,19 +34,16 @@ const theme = createMuiTheme({
       root: {
         padding: '1%',
       },
-    }
+    },
   },
   props: {
     MuiPaper: {
-      elevation: 0
-    }
+      elevation: 0,
+    },
   },
   typography: {
-    fontFamily: [
-      'Heebo',
-      'Arial'
-    ].join(',')
-  }
+    fontFamily: ['Heebo', 'Arial'].join(','),
+  },
 });
 
 export default theme;

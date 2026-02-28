@@ -24,27 +24,27 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     [theme.breakpoints.up('sm')]: {
       height: '100vh',
-      width: '10vh'
+      width: 80,
     },
     [theme.breakpoints.down('xs')]: {
-      height: '10vw',
+      height: 56,
       width: '100vw'
     }
   },
   drawerPaper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(1, 0),
     [theme.breakpoints.up('sm')]: {
       borderRight: 'none',
       height: '100vh',
-      width: '10vh',
+      width: 80,
       justifyContent: 'center',
       flexDirection: 'column' as const
     },
     [theme.breakpoints.down('xs')]: {
       borderBottom: 'none',
-      height: '10vw',
+      height: 56,
       width: '100vw',
-      justifyContent: 'left',
+      justifyContent: 'flex-start',
       flexDirection: 'row' as const
     },
   },

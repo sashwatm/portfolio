@@ -10,14 +10,16 @@ const styles = (theme: any) => ({
     textAlign: 'left' as const
   },
   avatar: {
-      width: theme.spacing(50),
-      height: theme.spacing(50),
+    width: theme.spacing(35),
+    height: theme.spacing(35),
+    borderRadius: 8,
   },
   paper: {
     height:'100%',
     display: 'flex',
     flexDirection: 'column' as const,
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   }
 });
 
@@ -26,7 +28,7 @@ function Photo(props: any) {
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
-        <Avatar className={classes.avatar} variant="circular" alt="Sashwat Mishra" src={headshot} />
+        <Avatar className={classes.avatar} variant="square" alt="Sashwat Mishra" src={headshot} />
       </Paper>
     </React.Fragment>
   );

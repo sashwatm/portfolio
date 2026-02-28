@@ -7,7 +7,7 @@ import logo from '../../images/logo.svg';
 
 const styles = (theme: any) => ({
   img: {
-    maxHeight:'60vh',
+    maxHeight:'35vh',
     maxWidth:'100%'
   },
   paper: {

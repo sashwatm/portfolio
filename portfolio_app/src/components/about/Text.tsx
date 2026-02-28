@@ -21,16 +21,16 @@ function Text(props: any) {
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
-        <Typography variant="h5">
+        <Typography variant="body1">
           I have spent my 11 year career building systems where the cost of failure is real: mission-critical platforms at Meta and AWS
           that have to be reliable, fast, and scalable by design.
         </Typography>
-        <Typography variant="h5">
+        <Typography variant="body1">
           I am most in my element on hard, ambiguous platform problems that cut across teams, translating messy technical
           reality into clear long-term direction and executing on it. I am also recognized for growing engineering talent,
           having helped engineers at every level develop into strong technical leaders.
         </Typography>
-        <Typography variant="h5">
+        <Typography variant="body1">
           Outside of work, I love cars, cooking, and traveling.
         </Typography>
       </Paper>
